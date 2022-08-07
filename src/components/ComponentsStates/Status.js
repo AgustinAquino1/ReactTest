@@ -1,13 +1,14 @@
 import React, { useState, useEffect} from "react";
 import axios, { AxiosError } from "axios";
 import './Components.css';
+
 const Status = ({apiName}) => {
 
 const [state, setState] = useState([]);
 const [error, setError] =useState ([])
 const [clockState, setClockState] = useState();
 
-const modifyRefreshInterval = 15
+const modifyRefreshInterval = 15 /* If you want to change the refresh interval, must modify this number. Is written in seconds*/
   
         
   const fetchData = async () => {
