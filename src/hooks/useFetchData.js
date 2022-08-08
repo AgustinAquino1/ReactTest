@@ -17,11 +17,9 @@ const modifyRefreshInterval = 15 /* If you want to change the refresh interval, 
             });
             setState(data);
             const date = new Date(data.time);
-            console.log("🚀 ~ date", date)
-      
+                
             setClockState(date.toLocaleTimeString());
-            
-            
+
           };
           
           useEffect(() => {

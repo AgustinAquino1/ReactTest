@@ -5,17 +5,10 @@ import useFetchData from "../../hooks/useFetchData";
 
 const Status = ({apiName}) => {
 
-const {state, clockState, error} = useFetchData(apiName)
-
-    
-   
-  
-  
-   
+const {state, clockState, error} = useFetchData(apiName) 
     
     return (
-      
-      
+       
         <div className="card">
         <ul> 
           <div className="div-apiName" ><li className = "apiName" >{apiName}</li></div>
@@ -28,9 +21,7 @@ const {state, clockState, error} = useFetchData(apiName)
            <div className="clock">{clockState}</div>
                                    
         </ul>
-      </div>
-        
-      
+      </div>            
   );
 
 };
