@@ -12,27 +12,31 @@ const modifyRefreshInterval = 15 /* If you want to change the refresh interval, 
   
         
   const fetchData = async () => {
-      const date = new Date();
-        setClockState(date.toLocaleTimeString());
-      const { data } = await axios.get(
-        `https://api.factoryfour.com/${apiName}/health/status`
-        )
+    const { data } = await axios.get(
+      `https://api.factoryfour.com/${apiName}/health/status`
+      )
         .catch(function (error) {
           setError(error) 
         });
         setState(data);
-        
-       
-    };
+        const date = new Date(data.time);
   
-    useEffect(() => {
+        setClockState(date.toLocaleTimeString());
+        
+        
+      };
+      
+      useEffect(() => {
+
       fetchData()
       setInterval(() => {
         fetchData()     
       }, (1000 * modifyRefreshInterval));
     }, []);
     
-    console.log(error)
+   
+  
+  
    
     
     return (
@@ -47,7 +51,7 @@ const modifyRefreshInterval = 15 /* If you want to change the refresh interval, 
            {error.message !== 'Network Error' ? <div className="div-hostname"><li className="hostname">{state.hostname}</li></div> : <div className="div-error"><li className="error">503 {error.message}</li></div>}
 
 
-           <div className="clock">{error.message !== 'Network Error' ? clockState : "" }</div>
+           <div className="clock">{clockState}</div>
                                    
         </ul>
       </div>
