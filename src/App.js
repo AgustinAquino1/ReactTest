@@ -13,7 +13,7 @@ const App = () => {
 
   return(
   <>
-  <h1 className="status-dashbord"> Status Dashbord</h1>
+  <h1 className="status-dashbord">  Status Dashbord</h1>
   <div id="wrapper">
     {apiNames.map((apiName,i)=> <Status
     key={i}
